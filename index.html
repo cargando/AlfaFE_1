@@ -59,10 +59,47 @@
 </div>
 
 <script>
-	var ms = ['Michale', 'Leonora', 'Vince', 'Patric', 'Angela'];
+	var ms_first = [];
+    ms_first[10] = 555;
+    ms_first[11] = 5444;
+    ms_first[12] = null;
 
-	console.log(ms);
+	var ms = ['Michale', 'Leonora', 'Vince', 'Patric', 'Angela', 10, 444, 5555];
+	var ms_digit = [5, 10, 3, 6, 2, 8, 1];
+    // print_array(ms);
+    // print_array(ms_first);
+    print_array_filter(ms_digit);
+    print_array_map(ms);
 
+
+    function print_array_map(ms) {
+        const local_array = ms.map( (item, index) => {
+            console.log('array index item = ', index, ', value = ', item);
+            return typeof item === "string" ? item.length : ms_first; // возвращаем длину строки (имеем в виду: что item это элемент массива - строка
+			// вы сами определяете: что будет включено в новый массив на выходе
+		});
+        console.log('local_array = ', local_array);
+    }
+    function print_array_filter(ms) {
+        const local_array = ms.filter( (item, index) => {
+            console.log('array index item = ', index, ', value = ', item);
+			if (item > 5) return true;
+			// filter возвращает true/false: если вернул истину, тогда элемент item будет включен в новый массив
+		});
+        console.log('local_array = ', local_array);
+	}
+
+	function print_array(ms) {
+        var local_array = [];
+	    ms.forEach((item, index, arr) => {
+            console.log('array index item = ', index, ', value = ', item, ', array with index', arr[index]);
+			if (item > 5) local_array.push(item);
+	    });
+	    // for(let i = 0; i < ms.length; i++) {
+        // for(const i in ms) {
+        //    console.log('array index item = ', i, ', value = ', ms[i]);
+		// }
+	}
 
 
 </script>
