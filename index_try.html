@@ -1,0 +1,99 @@
+<html>
+
+<head>
+	<title>My Test PROJECT</title>
+	<meta charset="UTF-8" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+<style>
+.delete_ico {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+
+}
+.delete_ico:hover {
+  color: 990000;
+  cursor: pointer;
+}
+.first-div {
+	border: black;
+	background-color: red;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.second-div {
+	border: black;
+	background-color: green;
+	padding: 30px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.third-div {
+	border: black;
+	background-color: yellow;
+	padding: 30px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+</style>
+</head>
+
+<body>
+<br /><br />
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h3>Test Project: For</h3>
+			<p id="test_p"></p>
+			<br>
+
+			<div id="img_holder">
+			</div>
+			<!--img src="/img/wallpapers-cats-01.jpg" width="600"--><br>
+
+
+		</div>
+	</div><!-- end of row -->
+
+</div>
+
+<script>
+
+// TRY CATCH - попробуй выполнить этот код, если не получится тогда - план Б
+	const объект = {
+	    name: '',
+		age: 100,
+	}
+	function myFunc() {
+		try {
+			// код который надо попробовать выполнить
+			console.log('Пытаюсь выполнить код из TRY');
+			if (!объект.name.length) {
+				throw new SyntaxError('Ошибка ввода данных в имени пользователя')
+			}
+			console.log('Результат TRY = ', a);
+			return;
+
+		} catch (e) {
+			// сделать что-то с ошибкой
+			console.log('Произошла ошибка внутри TRY, catch перехватил ее');
+			console.log('Ошибка', e.name, '\n', e.message, '\n', e.stack);
+			if (e.name === "SyntaxError") {
+				console.log('Обработал сам')
+			} else {
+				console.log('Не удалось обработать самостоятельно, передаю выше')
+				throw e;
+			}
+		} finally {
+			console.log('Блок кода: который выполнится в любом случае, что при try, что при catch...')
+		}
+    }
+	console.log('Next operands');
+
+
+
+</script>
+</body>
+
+</html>

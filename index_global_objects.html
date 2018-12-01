@@ -1,0 +1,152 @@
+<html>
+
+<head>
+	<title>My Test PROJECT</title>
+	<meta charset="UTF-8" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+<style>
+.delete_ico {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+
+}
+.delete_ico:hover {
+  color: 990000;
+  cursor: pointer;
+}
+.first-div {
+	border: black;
+	background-color: red;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.second-div {
+	border: black;
+	background-color: green;
+	padding: 30px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.third-div {
+	border: black;
+	background-color: yellow;
+	padding: 30px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+</style>
+</head>
+
+<body>
+<br /><br />
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h3>Test Project: For</h3>
+			<p id="test_p"></p>
+			<br>
+
+			<div id="img_holder">
+			</div>
+			<!--img src="/img/wallpapers-cats-01.jpg" width="600"--><br>
+
+
+		</div>
+	</div><!-- end of row -->
+
+</div>
+
+<script>
+
+	// Глобальные ОБЪЕКТЫ /////////////////////////
+	// Object
+	// Function
+	// String
+	// Boolean
+	// Number
+	// Math
+	// Date
+	// RegExp
+	// Array
+	//
+	// Error
+	// EvalError
+	// InternalError
+	// RangeError
+	// ReferenceError
+	// SyntaxError
+	// TypeError
+	// URIError
+
+	const str = '34.84asf3999';
+	const str2 = '34';
+	const num = 104;
+   	const num1 = '234857923750923875902387459023875902387450932875092384759023846'
+	console.log('Только число: ', Number.parseInt(str));
+    console.log('Только float: ', Number.parseFloat(str));
+    console.log('is integer str2: ', Number.isInteger(str2));
+    console.log('is integer str: ', Number.isInteger(Number.parseInt(str)));
+    console.log('is integer num: ', Number.isInteger(num));
+    console.log('is integer num: ', Number.isInteger(num));
+	console.log('is Finite: ', Number.isFinite(Infinity));
+
+	// Array.from() - создает новый массив из массиво подобного объекта
+	// Array.isArray() - проверяет является массивом или нет
+	// Array.of(a, b, c, d, .....) - создает массив из всех параметров: которые пойдут на вход функции
+	const ar = ['Andrey', 'Maria', 'Anton', 'Ekaterina', 'Lora'];
+    /* ar.push('ddd'); // добавляет элемент в массив
+	ar.pop() // - удаляет последний элемент из массива
+	ar.fill(number, start, till) // - заполняет массив числом number от start до till
+	ar.reverse() // переворачивает массив
+	ar.shift() // удаляет первый элемент массива и возвращает
+	ar.splice(start, deleteCount [...items...] ) // меняет содержимое массива
+	*/
+	console.log('Array:', ar);
+	// console.log('Array:', ar.splice(2));
+	console.log('Array:', ar.splice(1, 2, "Dmitri", "Dmitri2", "Anna"));
+	console.log('Array:', ar);
+
+	const sortFn = (a, b) => {
+		// if (a.name < b.name) return -1; // - таким образом можно сделать "глубокое " сравниние объектов внутри массива
+		if (a < b) return -1;
+		if (a > b) return 1;
+	};
+
+	// delete ar[0];
+    //ar.splice(0, 1)
+    console.log('Array:', ar.sort(sortFn));
+    console.log('Array:', ar.slice(0, 3));
+    console.log('Andrey,Maria,Eugin'.split(','));
+    console.log(' JOIN = ', ['aaaa', 'dddd', 4, 6].join('; '));
+
+
+
+	// Math.abs - абсолютное значение
+	// Math.max(a,b,c,d,e...) - вернет максимальное число из полученных аргументов
+	// Math.min(a,b,c,d,e...) - вернет минимальное число из полученных аргументов
+	// Math.random - вернет 0 до 1
+	// Math.sqrt - корень числа
+	// Math.trunc - возвращает целую часть числа: т.е. все что пссле запятой удалит
+    // Math.floor - округление до целого в меньшую сторону
+	// Math.ceil - округление до целого в большую сторону
+    console.log('Random: ', Math.random());
+    console.log('Random: ', Math.random());
+    console.log('Random: floor = ', Math.floor(6.4));
+    console.log('Random: ceil = ', Math.ceil(6.4));
+    console.log('Random: round 6.4 = ', Math.round(6.4));
+    console.log('Random: round 6.7 = ', Math.round(6.7 ));
+
+    const get_random = (min, max) => { // получить рандомное число в интервале от мин до макс
+        return Math.floor(Math.random() * (max - min)) + min;
+        // floor - округление
+	}
+
+    console.log('Random: ', get_random(15, 100));
+
+
+</script>
+</body>
+
+</html>
