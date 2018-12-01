@@ -1,0 +1,154 @@
+<html>
+
+<head>
+	<title>My Test PROJECT</title>
+	<meta charset="UTF-8" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+<style>
+.delete_ico {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+
+}
+.delete_ico:hover {
+  color: 990000;
+  cursor: pointer;
+}
+.first-div {
+	border: black;
+	background-color: red;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.second-div {
+	border: black;
+	background-color: green;
+	padding: 30px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.third-div {
+	border: black;
+	background-color: yellow;
+	padding: 30px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+</style>
+</head>
+
+<body>
+<br /><br />
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h3>Test Project: EVENTS</h3>
+			<p id="test_p"></p>
+			<br>
+			<form>
+				<div id="div1" class="first-div">
+					<div id="div2" class="second-div">
+						<div id="div3" class="third-div">
+								click me
+								<br> <a role="button" onclick="stopURL(event); " href="http://yandex.ru">go to yandex web site</a>
+<input id="btn1" type="button" onclick="hanldeClickButton(event)" value="press me">
+						</div>
+					</div>
+				</div>
+			</form>
+			<div id="img_holder">
+			</div>
+			<!--img src="/img/wallpapers-cats-01.jpg" width="600"--><br>
+
+
+		</div>
+	</div><!-- end of row -->
+
+</div>
+
+<script>
+var myImage = document.createElement('img');
+myImage.onload = function () {
+	console.log('IMAGE LOAD DONE');
+	document.getElementById('img_holder').appendChild(this);
+}
+myImage.onerror = function () {
+	console.log('IMAGE LOAD ERROR OCCURED');
+}
+myImage.src = '/img/wallpapers-cats-01.jpg';
+myImage.width = '500';
+
+
+
+
+var myOwnEvent = new Event('test_event', { bubbles: true, cancelable: true });
+
+document.getElementById('btn1').onclick = function (event) {
+	this.dispatchEvent(myOwnEvent)};
+
+
+function handlePrintTestEvent(event) {
+	// document.getElementById('test_p').innerHTML = 'got Event "test_event" on ' + event;
+	console.log('>>>>> got Event "test_event" on ', event)
+}
+
+function stopURL(event) {
+	event.preventDefault();
+	console.log('this is stopURL: stop yandex href', event);
+	return false;
+}
+
+function handleDiv2_1Click(e){
+	// e.stopPropagation();
+	console.log('2_1:  got event: ', e);
+}
+function handleDiv2_2Click(e){
+	// e.stopImmediatePropagation(); //e.stopPropagation();
+	console.log('2_2:  got event', e);
+}
+function handleDiv2_3Click(e){
+	// e.stopPropagation();
+	console.log('2_3 got event: ', e);
+}
+
+
+
+function handleDivClick(event) {
+	console.log('\nthis is: ');
+	console.log('реальный элемент, обрабатывающий сейчас событие: ', this.classList);
+	console.log('target: ', event.target.classList);
+
+}
+
+
+document.getElementById('div1').addEventListener("click", handleDivClick);
+document.getElementById('div2').addEventListener("click", handleDiv2_1Click);
+document.getElementById('div2').addEventListener("click", handleDiv2_2Click);
+document.getElementById('div2').addEventListener("click", handleDiv2_3Click);
+document.getElementById('div2').addEventListener("click", handleDivClick);
+document.getElementById('div3').addEventListener("click", handleDivClick);
+document.getElementById('div3').addEventListener("test_event", handlePrintTestEvent);
+
+
+function hanldeClickButton(event) {
+	console.log('this is hanldeClickButton, event = ', event);
+	document.getElementById('test_p').innerHTML = 'Нажата кнопка, target = ' + event.target;
+}
+
+function secondHandler(event) {
+	console.log('this is secondHandler, event = ', event);
+}
+
+/* это то, во что будет преобразована конструкция добавления события для тега input через атрибут
+document.getElementById('btn1').onclick = function (event) {
+	hanldeClickButton(event); // копия вашей строки из атрибута onclick
+	return false;
+}*/
+// document.getElementById('btn1').onclick = secondHandler;
+
+</script>
+</body>
+
+</html>
