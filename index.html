@@ -59,26 +59,60 @@
 </div>
 
 <script>
+
+	//const
+
+
 	var ms_first = [];
     ms_first[10] = 555;
     ms_first[11] = 5444;
     ms_first[12] = null;
 
-	var ms = ['Michale', 'Leonora', 'Vince', 'Patric', 'Angela', 10, 444, 5555];
 	var ms_digit = [5, 10, 3, 6, 2, 8, 1];
+    var ms = ['Michale', 'Leonora', 'Vince', 'Patric', 'Angela'];
+    var ms_str = ['Michale', 'Leonora', 'Vince', 'Patric', 'Angela'];
     // print_array(ms);
     // print_array(ms_first);
     print_array_filter(ms_digit);
-    print_array_map(ms);
+    console.log('res MAP = ', print_array_map(ms));
 
+    console.log('Every item of array is a string: ', print_array_every(ms_str));
+    console.log('At least one item in array is a string: ', print_array_some(ms));
+    console.log('print_array_reduce: ', print_array_reduce(ms_digit), ' primary array = ', ms_digit)
+
+
+
+    function print_array_reduce(ms) {
+        // ms.reduceRight(....) - работает с массивом с конца
+        const result = ms.reduce( (sum, current, index, arr) => {
+			return sum + current;
+		});
+        return result;
+	}
+
+    // every / some
+    function print_array_every(ms) {
+        const result = ms.every((item, index) => {
+			return typeof item === "string";
+		});
+		return result;
+    }
+    function print_array_some(ms) {
+        const result = ms.some((item, index) => {
+            return typeof item === "number";
+        });
+        return result;
+    }
 
     function print_array_map(ms) {
         const local_array = ms.map( (item, index) => {
             console.log('array index item = ', index, ', value = ', item);
             return typeof item === "string" ? item.length : ms_first; // возвращаем длину строки (имеем в виду: что item это элемент массива - строка
 			// вы сами определяете: что будет включено в новый массив на выходе
+		}).reduce( (sum, item) => {
+		    return sum + item;
 		});
-        console.log('local_array = ', local_array);
+        console.log('MAP local_array = ', local_array);
     }
     function print_array_filter(ms) {
         const local_array = ms.filter( (item, index) => {
